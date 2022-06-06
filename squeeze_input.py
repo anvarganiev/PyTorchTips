@@ -1,9 +1,9 @@
 import torchvision.models as models
 
 
-def squeeze_weights(model):
-    model.weight.data = model.weight.data.sum(dim=1)[:, None]
-    model.in_channels = 1
+def squeeze_weights(module):
+    module.weight.data = module.weight.data.sum(dim=1)[:, None]
+    module.in_channels = 1
 
 
 if __name__ == '__main__':
